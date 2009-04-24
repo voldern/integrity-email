@@ -6,6 +6,21 @@
   %label{ :for => "email_notifier_from" } Send from
   %input.text#email_notifier_from{ :name => "notifiers[Email][from]", :type => "text", :value => config["from"] }
 
+%p.normal
+  %label{ :for => "email_notifier_method" } Delivery method
+  %select#email_notifier_method{ :name => "notifiers[Email][method]" }
+    - if config['method'] == 'sendmail'
+      %option{ :value => 'sendmail', :selected => 'true' } Sendmail
+      %option{ :value => 'net_smtp' } SMTP
+      - else
+        %option{ :value => 'sendmail' } Sendmail
+        %option{ :value => 'net_smtp', :selected => 'true' } SMTP
+
+%h3 Sendmail configuration
+%p.normal
+  %label{ :for => "email_notifier_sendmail" } Sendmail path
+  %input.text#email_notifier_sendmail{ :name => "notifiers[Email][sendmail]", :value => (config[sendmail] || '/usr/sbin/sendmail'), :type => 'text' }
+
 %h3 SMTP Server Configuration
 
 %p.normal
