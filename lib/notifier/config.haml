@@ -17,9 +17,10 @@
         %option{ :value => 'net_smtp', :selected => 'true' } SMTP
 
 %h3 Sendmail configuration
+
 %p.normal
   %label{ :for => "email_notifier_sendmail" } Sendmail path
-  %input.text#email_notifier_sendmail{ :name => "notifiers[Email][sendmail]", :value => (config[sendmail] || '/usr/sbin/sendmail'), :type => 'text' }
+  %input.text#email_notifier_sendmail{ :name => "notifiers[Email][sendmail]", :value => (config['sendmail'] || '/usr/sbin/sendmail'), :type => 'text' }
 
 %h3 SMTP Server Configuration
 
